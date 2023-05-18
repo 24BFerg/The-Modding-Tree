@@ -1,8 +1,8 @@
 let modInfo = {
-	name: "The ??? Tree",
+	name: "The Pizza Tree",
 	id: "mymod",
 	author: "nobody",
-	pointsName: "points",
+	pointsName: "ounces of dough",
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "",
@@ -26,7 +26,7 @@ let winText = `Congratulations! You have reached the end and beaten this game, b
 
 // If you add new functions anywhere inside of a layer, and those functions have an effect when called, add them here.
 // (The ones here are examples, all official functions are already taken care of)
-var doNotCallTheseFunctionsEveryTick = ["blowUpEverything"]
+var doNotCallTheseFunctionsEveryTick = ["blowUpEverything", doReset()]
 
 function getStartPoints(){
     return new Decimal(modInfo.initialStartPoints)
@@ -35,6 +35,10 @@ function getStartPoints(){
 // Determines if it should show points/sec
 function canGenPoints(){
 	return true
+}
+
+function doReset() {
+	points = points % 10
 }
 
 // Calculate points/sec!
